@@ -36,7 +36,10 @@ const galleryImages = [
   "/pics/pics2.jpg",
   "/pics/pics3.jpg",
   "/pics/pics4.jpg",
-  "/pics/pics5.jpg"
+  "/pics/pics5.jpg",
+  "/pics/pics6.jpg",
+  "/pics/pics7.jpg",
+  "/pics/pics8.jpg"
 ];
 
 // --- 3D COMPONENT (Hero Image) ---
