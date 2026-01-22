@@ -57,7 +57,7 @@ function HeroScene() {
     <DreiImage 
       ref={ref}
       url="/pics/pics1.jpg" 
-      scale={[10, 6, 1] as unknown as [number, number, number]} 
+      scale={[10, 6] as unknown as [number, number]} 
       transparent 
       opacity={0.9} // Plus d'impact
     />
@@ -104,7 +104,7 @@ export default function Portfolio() {
             trigger: horizontalWrapperRef.current,
             pin: true,
             scrub: 1,
-            end: () => "+=" + (horizontalWrapperRef.current as HTMLElement).offsetWidth
+            end: () => "+=" + (horizontalWrapperRef.current as unknown as HTMLElement).offsetWidth
           }
         });
       });
