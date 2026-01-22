@@ -56,8 +56,8 @@ function HeroScene() {
   return (
     <DreiImage 
       ref={ref}
-        url="/pics/pics1.jpg" 
-        scale={[10, 6, 1]} 
+      url="/pics/pics1.jpg" 
+      scale={[10, 6, 1] as unknown as [number, number, number]} 
       transparent 
       opacity={0.9} // Plus d'impact
     />
