@@ -15,6 +15,7 @@ import "yet-another-react-lightbox/styles.css";
 // Components
 import MagneticButton from './components/MagneticButton';
 import BookingForm from './components/BookingForm';
+import Link from 'next/link';
 
 // Fonts
 const playfair = Playfair_Display({ subsets: ['latin'], variable: '--font-serif' });
@@ -25,21 +26,21 @@ gsap.registerPlugin(ScrollTrigger);
 
 // Data
 const services = [
-  { id: "01", title: "Automobile", desc: "Shootings commerciaux & privés", img: "https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?q=80&w=1983" },
-  { id: "02", title: "Portrait Éditorial", desc: "Éclairage studio & extérieur", img: "https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?q=80&w=1964" },
-  { id: "03", title: "Contenu de Marque", desc: "Stratégie réseaux sociaux & visuels", img: "https://images.unsplash.com/photo-1542038784456-1ea8e935640e?q=80&w=2070" }
+  { id: "01", title: "Automobile", desc: "Shootings commerciaux & privés", slug: "automotive", img: "/pics/car/DSC03037-Enhanced-NR.jpg" },
+  { id: "02", title: "Portrait Éditorial", desc: "Éclairage studio & extérieur", slug: "portrait", img: "/pics/portrait/blond5.jpg" },
+  { id: "03", title: "Contenu de Marque", desc: "Stratégie réseaux sociaux & visuels", slug: "brand", img: "/pics/car/DSC01428.jpg" }
 ];
 
 // Fallback images si les locales ne marchent pas pour la démo
 const galleryImages = [
-  "/pics/pics1.jpg",
-  "/pics/pics2.jpg",
-  "/pics/pics3.jpg",
-  "/pics/pics4.jpg",
-  "/pics/pics5.jpg",
-  "/pics/pics6.jpg",
-  "/pics/pics7.jpg",
-  "/pics/pics8.jpg"
+  "/pics/car/DSC03037-Enhanced-NR.jpg",
+  "/pics/car/DSC00511.jpg",
+  "/pics/car/DSC02570-Enhanced-NR.jpg",
+  "/pics/portrait/DSC03090-Enhanced-NR.jpg",
+  "/pics/car/DSC00904.jpg",
+  "/pics/car/IMG_1830-Enhanced-NR.jpg",
+  "/pics/car/DSC02671-Enhanced-NR.jpg",
+  "/pics/car/DSC01439.jpg",
 ];
 
 // 3D Scene
@@ -56,8 +57,8 @@ function HeroScene() {
   return (
     <DreiImage 
       ref={ref}
-      url="/pics/pics1.jpg" 
-      scale={[10, 6] as unknown as [number, number]} 
+      url="/pics/car/DSC03037-Enhanced-NR.jpg" 
+      scale={[7, 6] as unknown as [number, number]} 
       transparent 
       opacity={0.9} // Plus d'impact
     />
@@ -190,13 +191,18 @@ export default function Portfolio() {
                 </div>
                 <div className="w-full md:w-2/3 flex flex-col">
                     {services.map((service, index) => (
-                        <div key={index} onMouseEnter={() => setActiveService(index)} className={`group flex items-center justify-between py-8 md:py-10 border-b cursor-pointer transition-all duration-300 ${activeService === index ? 'border-red-600 opacity-100' : 'border-white/10 opacity-60 hover:opacity-100'}`}>
-                             <div>
-                                <span className={`text-xs mb-2 block font-mono transition-colors ${activeService === index ? 'text-red-500' : 'text-gray-500'}`}>0{index + 1}</span>
-                                <h4 className="text-3xl md:text-6xl font-display uppercase group-hover:translate-x-4 transition-transform duration-300">{service.title}</h4>
-                             </div>
-                             <span className="hidden md:block text-xs uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-red-500">Voir le portfolio ➝</span>
-                        </div>
+                        // On remplace le div par Link
+        <Link href={`/work/${service.slug}`} key={index}> 
+            <div 
+                 onMouseEnter={() => setActiveService(index)}
+                 className={`group flex items-center justify-between py-8 md:py-10 border-b cursor-pointer transition-all duration-300 ${activeService === index ? 'border-red-600 opacity-100' : 'border-white/10 opacity-60 hover:opacity-100'}`}>
+                 <div>
+                    <span className={`text-xs mb-2 block font-mono transition-colors ${activeService === index ? 'text-red-500' : 'text-gray-500'}`}>0{index + 1}</span>
+                    <h4 className="text-3xl md:text-6xl font-display uppercase group-hover:translate-x-4 transition-transform duration-300">{service.title}</h4>
+                 </div>
+                 <span className="hidden md:block text-xs uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-red-500">View Work ➝</span>
+            </div>
+        </Link>
                     ))}
                 </div>
             </div>
@@ -239,7 +245,7 @@ export default function Portfolio() {
 
       {/* FOOTER */}
       <footer id="contact" className="min-h-screen flex flex-col justify-center items-center bg-[#050505] relative z-10 py-20 px-4">
-        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1494976388531-d1058494cdd8?q=80&w=2070')] bg-cover opacity-10 pointer-events-none"></div>
+        <div className="absolute inset-0 bg-cover opacity-20 pointer-events-none z-0" style={{ backgroundImage: "url('/pics/car/DSC00688.jpg')", backgroundPosition: 'center' }}></div>
         <div className="z-10 w-full max-w-5xl flex flex-col md:flex-row gap-16 items-center justify-between">
             
             <div className="text-center md:text-left">
