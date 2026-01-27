@@ -10,6 +10,8 @@ import Lightbox from "yet-another-react-lightbox";
 import "yet-another-react-lightbox/styles.css";
 import { ArrowLeft, ArrowRight } from 'lucide-react'; // Assure-toi d'avoir lucide-react ou utilise un svg
 
+import Image from 'next/image';
+
 // --- FONTS (On réimporte pour garder le style) ---
 const playfair = Playfair_Display({ subsets: ['latin'], variable: '--font-serif' });
 const inter = Inter({ subsets: ['latin'], variable: '--font-sans' });
@@ -165,7 +167,16 @@ export default function ProjectPage() {
                      className="gallery-img break-inside-avoid relative group overflow-hidden cursor-zoom-in"
                      onClick={() => { setLightboxIndex(index); setLightboxOpen(true); }}>
                     
-                    <img src={src} alt="Project" className="w-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 ease-in-out scale-100 group-hover:scale-105" />
+                    {/* <img src={src} alt="Project" className="w-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 ease-in-out scale-100 group-hover:scale-105" /> */}
+                    <Image 
+                       src={src} 
+                       alt="Project detail" 
+                       width={800} // Une largeur de base suffisante
+                       height={600} // Une hauteur arbitraire (Next.js conservera le ratio si style est auto)
+                       className="w-full h-auto object-cover grayscale group-hover:grayscale-0 transition-all duration-700 ease-in-out scale-100 group-hover:scale-105" 
+                       sizes="(max-width: 768px) 100vw, 33vw"
+                       style={{ width: '100%', height: 'auto' }} // Important pour le responsive
+                    />
                     
                     {/* Overlay Info */}
                     <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center pointer-events-none">

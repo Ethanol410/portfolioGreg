@@ -21,6 +21,7 @@
     "react": "19.2.3",
     "react-dom": "19.2.3",
     "react-hook-form": "^7.71.1",
+    "sharp": "^0.34.5",
     "three": "^0.182.0",
     "yet-another-react-lightbox": "^3.28.0",
     "zod": "^4.3.5"

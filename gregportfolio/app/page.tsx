@@ -6,6 +6,8 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
 import Lenis from '@studio-freight/lenis';
 
+import Image from 'next/image';
+
 // Libs
 import { Canvas, useFrame } from '@react-three/fiber';
 import { Image as DreiImage } from '@react-three/drei';
@@ -210,8 +212,14 @@ export default function Portfolio() {
         {/* Image de fond Service - Transition améliorée */}
         <div className="absolute top-0 right-0 w-full md:w-[60vw] h-full pointer-events-none z-0 opacity-20 md:opacity-40">
              {services.map((s, i) => (
-               <img key={s.id} src={s.img} alt={s.title} 
-                    className={`absolute inset-0 w-full h-full object-cover grayscale mix-blend-screen transition-opacity duration-700 ease-in-out ${activeService === i ? 'opacity-100 scale-105' : 'opacity-0 scale-100'}`} />
+              <Image 
+                 key={s.id} 
+                 src={s.img} 
+                 alt={s.title}
+                 fill // <--- AJOUTEZ CECI
+                 sizes="(max-width: 768px) 100vw, 60vw" // Bonne pratique pour la performance
+                 className={`absolute inset-0 w-full h-full object-cover grayscale mix-blend-screen transition-opacity duration-700 ease-in-out ${activeService === i ? 'opacity-100 scale-105' : 'opacity-0 scale-100'}`}  
+              />
              ))}
              <div className="absolute inset-0 bg-gradient-to-r from-[#050505] to-transparent"></div>
         </div>
@@ -232,7 +240,14 @@ export default function Portfolio() {
            <div key={idx} className="h-item w-full lg:h-full lg:min-w-[70vw] flex items-center justify-center p-6 lg:p-10 relative border-b lg:border-b-0 lg:border-r border-white/5 group min-h-[50vh]">
              <div className="relative w-full lg:w-[80%] h-[40vh] lg:h-[70%] overflow-hidden border border-white/10 cursor-zoom-in"
                   onClick={() => { setLightboxIndex(idx); setLightboxOpen(true); }}>
-               <img src={src} className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 scale-100 group-hover:scale-110" />
+               <Image 
+                  src={src} 
+                  alt={`Gallery image ${idx + 1}`} 
+                  fill // <--- AJOUTEZ CECI
+                  className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 scale-100 group-hover:scale-110" 
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 70vw, 50vw" 
+                  quality={80} 
+               />
                <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none bg-black/20">
                  <span className="bg-white text-black text-xs font-bold px-4 py-2 uppercase tracking-widest">Agrandir</span>
                </div>
