@@ -40,7 +40,7 @@ const galleryImages = [
   "/pics/car/DSC02570-Enhanced-NR.jpg",
   "/pics/portrait/DSC03090-Enhanced-NR.jpg",
   "/pics/car/DSC00904.jpg",
-  "/pics/car/IMG_1830-Enhanced-NR.jpg",
+  "/pics/car/IMG_0616.jpeg",
   "/pics/car/DSC02671-Enhanced-NR.jpg",
   "/pics/car/DSC01439.jpg",
 ];
@@ -276,7 +276,7 @@ export default function Portfolio() {
             </div>
 
             {/* Formulaire */}
-            <BookingForm />
+            {/* <BookingForm /> */}
         </div>
       </footer>
 

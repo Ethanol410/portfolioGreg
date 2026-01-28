@@ -22,9 +22,9 @@ gsap.registerPlugin(ScrollTrigger);
 // --- FAKE DATA (Simule une DB) ---
 const projectData: any = {
   "automotive": {
-    title: "Automotive",
-    subtitle: "Speed & Legacy",
-    desc: "Capturing the raw power of engineering. From the racetrack to the showroom, every curve tells a story of speed.",
+    title: "Automobile",
+    subtitle: "Vitesse & Héritage",
+    desc: "Capturant la puissance brute de l'ingénierie. De la piste au showroom, chaque courbe raconte une histoire de vitesse.",
     next: "portrait",
     images: [
       "/pics/car/DSC03037-Enhanced-NR.jpg",
@@ -51,9 +51,9 @@ const projectData: any = {
     ]
   },
   "portrait": {
-    title: "Editorial Portrait",
-    subtitle: "The Human Soul",
-    desc: "Beyond the face. We look for the story, the emotion, and the unspoken words in every gaze.",
+    title: "Portrait éditorial",
+    subtitle: "L'âme humaine",
+    desc: "Au-delà du visage. Nous cherchons l'histoire, l'émotion et les paroles non dites dans chaque regard.",
     next: "brand",
     images: [
       "/pics/portrait/blond1.jpg",
@@ -80,9 +80,9 @@ const projectData: any = {
     ]
   },
   "brand": {
-    title: "Brand Content",
-    subtitle: "Identity & Vision",
-    desc: "Elevating brands through visual storytelling. Consistent, powerful, and memorable imagery for the digital age.",
+    title: "Contenu de marque",
+    subtitle: "Identité & Vision",
+    desc: "Sublimer les marques par la narration visuelle. Des images cohérentes, puissantes et mémorables pour l'ère numérique.",
     next: "automotive",
     images: [
       "/pics/car/IMG_1830-Enhanced-NR.jpg",
@@ -139,7 +139,7 @@ export default function ProjectPage() {
       {/* HEADER NAV */}
       <nav className="fixed top-0 w-full p-8 flex justify-between items-center z-50 mix-blend-difference">
         <Link href="/" className="group flex items-center gap-2 text-xs font-bold uppercase tracking-widest hover:text-red-500 transition-colors">
-            <ArrowLeft size={16} className="group-hover:-translate-x-1 transition-transform"/> Back Home
+            <ArrowLeft size={16} className="group-hover:-translate-x-1 transition-transform"/> Retour à l'accueil
         </Link>
         <span className="font-display font-bold uppercase text-xl">Venox.</span>
       </nav>
@@ -147,7 +147,7 @@ export default function ProjectPage() {
       {/* HERO SECTION DU PROJET */}
       <header className="pt-40 pb-20 px-6 md:px-20 max-w-7xl mx-auto">
         <span className="text-red-600 font-bold uppercase tracking-[0.3em] text-xs block mb-4">
-            Selected Works — {currentData.subtitle}
+            Travaux sélectionnés — {currentData.subtitle}
         </span>
         <h1 className="page-title text-6xl md:text-9xl font-display font-black uppercase tracking-tighter mb-10 text-transparent stroke-white leading-none">
             {currentData.title}
@@ -170,7 +170,7 @@ export default function ProjectPage() {
                     {/* <img src={src} alt="Project" className="w-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 ease-in-out scale-100 group-hover:scale-105" /> */}
                     <Image 
                        src={src} 
-                       alt="Project detail" 
+                       alt="Détail du projet" 
                        width={800} // Une largeur de base suffisante
                        height={600} // Une hauteur arbitraire (Next.js conservera le ratio si style est auto)
                        className="w-full h-auto object-cover grayscale group-hover:grayscale-0 transition-all duration-700 ease-in-out scale-100 group-hover:scale-105" 
@@ -181,7 +181,7 @@ export default function ProjectPage() {
                     {/* Overlay Info */}
                     <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center pointer-events-none">
                         <span className="border border-white/30 bg-black/50 backdrop-blur-md px-4 py-2 text-xs font-bold uppercase tracking-widest text-white">
-                            View Full
+                            Voir en grand
                         </span>
                     </div>
                 </div>
@@ -196,12 +196,12 @@ export default function ProjectPage() {
         </div>
         
         <Link href={`/work/${currentData.next}`} className="relative z-10 text-center">
-            <p className="text-xs font-bold uppercase tracking-[0.4em] mb-4 text-white/60">Next Collection</p>
+            <p className="text-xs font-bold uppercase tracking-[0.4em] mb-4 text-white/60">Collection suivante</p>
             <h2 className="text-6xl md:text-8xl font-display font-black uppercase tracking-tighter text-white group-hover:scale-110 transition-transform duration-700">
                 {projectData[currentData.next].title}
             </h2>
             <div className="mt-8 inline-flex items-center gap-2 border-b border-red-600 pb-1 text-red-500 font-bold uppercase tracking-widest">
-                Discover <ArrowRight size={16} />
+                Découvrir <ArrowRight size={16} />
             </div>
         </Link>
       </section>
