@@ -29,12 +29,12 @@ gsap.registerPlugin(ScrollTrigger);
 // Data
 const services = [
   { id: "01", title: "Automobile", desc: "Shootings commerciaux & privés", slug: "automotive", img: "/pics/car/DSC03037-Enhanced-NR.jpg" },
-  { id: "02", title: "Portrait Éditorial", desc: "Éclairage studio & extérieur", slug: "portrait", img: "/pics/portrait/blond5.jpg" },
-  { id: "03", title: "Contenu de Marque", desc: "Stratégie réseaux sociaux & visuels", slug: "brand", img: "/pics/car/DSC01428.jpg" }
+  { id: "02", title: "Portrait", desc: "Éclairage studio & extérieur", slug: "portrait", img: "/pics/portrait/blond5.jpg" },
+  { id: "03", title: "Contenu de Marque", desc: "Stratégie réseaux sociaux & visuels", slug: "brand", img: "/pics/car/DSC01428.jpg" },
+  { id: "04", title: "Evenementiel", desc: "Mariages, galas & événements privés", slug: "evenementiel", img: "/pics/portrait/blond5.jpg" }
 ];
 
-// Fallback images si les locales ne marchent pas pour la démo
-const galleryImages = [
+const FALLBACK_IMAGES = [
   "/pics/car/DSC03037-Enhanced-NR.jpg",
   "/pics/car/DSC00511.jpg",
   "/pics/car/DSC02570-Enhanced-NR.jpg",
@@ -74,6 +74,14 @@ export default function Portfolio() {
   const [lightboxOpen, setLightboxOpen] = useState(false);
   const [lightboxIndex, setLightboxIndex] = useState(0);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [galleryImages, setGalleryImages] = useState<string[]>(FALLBACK_IMAGES);
+
+  useEffect(() => {
+    fetch('/api/gallery')
+      .then(r => r.json())
+      .then(data => { if (data.images?.length > 0) setGalleryImages(data.images) })
+      .catch(() => {/* keep fallback */})
+  }, []);
 
   useEffect(() => {
     // 1. Lenis Smooth Scroll
@@ -178,7 +186,7 @@ export default function Portfolio() {
         <div className="max-w-4xl text-center">
             <p className="text-red-500 font-bold uppercase tracking-[0.3em] mb-8 text-xs">The Vision</p>
             <h2 className="manifesto-text text-3xl md:text-6xl font-display uppercase leading-tight text-white/20 bg-clip-text bg-gradient-to-r from-white via-white to-white/20 bg-no-repeat" style={{ backgroundSize: "0% 100%" }}>
-                "La photographie ne se résume pas à l'appareil. C'est la <span className="text-red-600">volonté</span> qui compte. Créez des visuels qui arrêtent le défilement."
+                "La photographie ne se résume pas à l'appareil. C'est la <span className="text-red-600">volonté</span> qui compte. Créer des visuels qui arrêtent le défilement."
             </h2>
         </div>
       </section>
@@ -240,11 +248,11 @@ export default function Portfolio() {
            <div key={idx} className="h-item w-full lg:h-full lg:min-w-[70vw] flex items-center justify-center p-6 lg:p-10 relative border-b lg:border-b-0 lg:border-r border-white/5 group min-h-[50vh]">
              <div className="relative w-full lg:w-[80%] h-[40vh] lg:h-[70%] overflow-hidden border border-white/10 cursor-zoom-in"
                   onClick={() => { setLightboxIndex(idx); setLightboxOpen(true); }}>
-               <Image 
-                  src={src} 
-                  alt={`Gallery image ${idx + 1}`} 
+               <Image
+                  src={src}
+                  alt={`Gallery image ${idx + 1}`}
                   fill // <--- AJOUTEZ CECI
-                  className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 scale-100 group-hover:scale-110" 
+                  className="w-full h-full object-cover transition-all duration-700 scale-100 group-hover:scale-110"
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 70vw, 50vw" 
                   quality={80} 
                />
@@ -273,6 +281,17 @@ export default function Portfolio() {
                     Envoyer un message sur Instagram
                 </a>
               </MagneticButton>
+
+              <div className="mt-10 flex flex-col gap-3 text-sm text-white/60">
+                <a href="tel:+33600000000" className="flex items-center gap-3 hover:text-white transition-colors">
+                  <span className="text-red-500">✆</span>
+                  <span className="font-mono tracking-widest">+33 7 69 29 42 68</span>
+                </a>
+                <a href="mailto:contact@venox.fr" className="flex items-center gap-3 hover:text-white transition-colors">
+                  <span className="text-red-500">✉</span>
+                  <span className="font-mono tracking-widest">gregoiretrotin@gmail.com</span>
+                </a>
+              </div>
             </div>
 
             {/* Formulaire */}

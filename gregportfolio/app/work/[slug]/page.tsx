@@ -51,7 +51,7 @@ const projectData: any = {
     ]
   },
   "portrait": {
-    title: "Portrait éditorial",
+    title: "Portrait",
     subtitle: "L'âme humaine",
     desc: "Au-delà du visage. Nous cherchons l'histoire, l'émotion et les paroles non dites dans chaque regard.",
     next: "brand",
@@ -83,17 +83,26 @@ const projectData: any = {
     title: "Contenu de marque",
     subtitle: "Identité & Vision",
     desc: "Sublimer les marques par la narration visuelle. Des images cohérentes, puissantes et mémorables pour l'ère numérique.",
-    next: "automotive",
+    next: "evenementiel",
     images: [
       "/pics/car/IMG_1830-Enhanced-NR.jpg",
       "/pics/car/DSC01428.jpg",
       "/pics/car/DSC02701-Enhanced-NR.jpg",
       "/pics/car/DSC00896.jpg",
-        "/pics/car/DSC01417-Enhanced-NR.jpg",
-        "/pics/car/DSC00715.jpg",
-        "/pics/car/DSC00436.jpg",
-        "/pics/car/DSC00748.jpg",
-        "/pics/portrait/casque3.jpg",
+      "/pics/car/DSC01417-Enhanced-NR.jpg",
+      "/pics/car/DSC00715.jpg",
+      "/pics/car/DSC00436.jpg",
+      "/pics/car/DSC00748.jpg",
+      "/pics/portrait/casque3.jpg",
+    ]
+  },
+  "evenementiel": {
+    title: "Evenementiel",
+    subtitle: "Instants & Émotions",
+    desc: "Mariages, galas, événements privés. Capturer l'éphémère avec élégance et discrétion.",
+    next: "automotive",
+    images: [
+      "/pics/portrait/blond5.jpg",
     ]
   }
 };
@@ -105,7 +114,17 @@ export default function ProjectPage() {
   const [lightboxIndex, setLightboxIndex] = useState(0);
 
   // Sécurité si le slug n'existe pas dans nos data
-  const currentData = projectData[slug as string] || projectData["automotive"];
+  const localData = projectData[slug as string] || projectData["automotive"];
+  const [images, setImages] = useState<string[]>(localData.images);
+  const currentData = { ...localData, images };
+
+  useEffect(() => {
+    // Charge les images depuis Sanity si disponibles, sinon garde les locales
+    fetch(`/api/category/${slug}`)
+      .then(r => r.json())
+      .then(data => { if (data.images?.length > 0) setImages(data.images) })
+      .catch(() => {/* garde les images locales */})
+  }, [slug]);
 
   useEffect(() => {
     // 1. Smooth Scroll
