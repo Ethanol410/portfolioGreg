@@ -13,19 +13,15 @@ const FALLBACK_IMAGES = [
 ]
 
 export async function GET() {
-  const projectId = process.env.NEXT_PUBLIC_SANITY_PROJECT_ID
-
-  if (!projectId) {
+  if (!sanityClient) {
     return NextResponse.json({ images: FALLBACK_IMAGES, source: 'local' })
   }
 
   try {
     const results = await sanityClient.fetch(homepageGalleryQuery)
-
     if (!results || results.length === 0) {
       return NextResponse.json({ images: FALLBACK_IMAGES, source: 'local' })
     }
-
     const images = results.map((item: { imageUrl: string }) => item.imageUrl)
     return NextResponse.json({ images, source: 'sanity' })
   } catch {
