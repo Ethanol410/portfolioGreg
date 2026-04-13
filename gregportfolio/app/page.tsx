@@ -289,6 +289,10 @@ export default function Portfolio() {
                   <span className="text-red-500">✉</span>
                   <span className="font-mono tracking-widest">gregoiretrotin@gmail.com</span>
                 </a>
+                <a href="https://www.instagram.com/venoxalacam" target="_blank" className="flex items-center gap-3 hover:text-white transition-colors">
+                  <span className="text-red-500">📸</span>
+                  <span className="font-mono tracking-widest">Instagram "VenoxalaCam"</span>
+                </a>
               </div>
             </div>
 
