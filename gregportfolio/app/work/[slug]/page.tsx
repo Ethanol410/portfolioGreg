@@ -26,6 +26,7 @@ const projectData: any = {
     subtitle: "Vitesse & Héritage",
     desc: "Capturant la puissance brute de l'ingénierie. De la piste au showroom, chaque courbe raconte une histoire de vitesse.",
     next: "sport-automobile",
+    bgImage: "/fondAutomobile.jpg",
     images: [
       "/pics/car/DSC03037-Enhanced-NR.jpg",
       "/pics/car/_DSC5710.jpg",
@@ -55,6 +56,7 @@ const projectData: any = {
     subtitle: "Circuit & Adrénaline",
     desc: "La puissance en mouvement. Circuit, rallye et motorsport : chaque image capture la vitesse, la précision et l'intensité de la compétition.",
     next: "automotive",
+    bgImage: "/fondSportAutomobile.jpg",
     images: [
       "/pics/car/DSC02570-Enhanced-NR.jpg",
     ]
@@ -146,7 +148,7 @@ export default function ProjectPage() {
                        alt="Détail du projet" 
                        width={800} // Une largeur de base suffisante
                        height={600} // Une hauteur arbitraire (Next.js conservera le ratio si style est auto)
-                       className="w-full h-auto object-cover grayscale group-hover:grayscale-0 transition-all duration-700 ease-in-out scale-100 group-hover:scale-105" 
+                       className="w-full h-auto object-cover group-hover:grayscale-0 transition-all duration-700 ease-in-out scale-100 group-hover:scale-105" 
                        sizes="(max-width: 768px) 100vw, 33vw"
                        style={{ width: '100%', height: 'auto' }} // Important pour le responsive
                     />
@@ -165,7 +167,7 @@ export default function ProjectPage() {
       {/* NEXT PROJECT NAVIGATION */}
       <section className="h-[60vh] bg-[#0a0a0a] flex items-center justify-center border-t border-white/10 relative overflow-hidden group">
         <div className="absolute inset-0 opacity-20 group-hover:opacity-40 transition-opacity duration-700">
-            <img src={projectData[currentData.next].images[0]} className="w-full h-full object-cover grayscale" />
+            <img src={projectData[currentData.next].bgImage} className="w-full h-full object-cover" />
         </div>
         
         <Link href={`/work/${currentData.next}`} className="relative z-10 text-center">
