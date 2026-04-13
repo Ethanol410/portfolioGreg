@@ -44,8 +44,7 @@ export default function BookingForm() {
             <select {...register("type")} className="w-full bg-transparent border-b border-white/20 py-3 text-white/50 focus:outline-none focus:border-red-600 transition-colors [&>option]:text-black">
               <option value="">SÉLECTIONNEZ LE TYPE</option>
               <option value="automotive">Automobile</option>
-              <option value="portrait">Portrait éditorial</option>
-              <option value="brand">Contenu de marque</option>
+              <option value="sport-automobile">Sport Automobile</option>
             </select>
             {errors.type && <span className="text-red-500 text-xs mt-1 block">{String(errors.type.message)}</span>}
           </div>

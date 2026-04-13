@@ -29,9 +29,7 @@ gsap.registerPlugin(ScrollTrigger);
 // Data
 const services = [
   { id: "01", title: "Automobile", desc: "Shootings commerciaux & privés", slug: "automotive", img: "/pics/car/DSC03037-Enhanced-NR.jpg" },
-  { id: "02", title: "Portrait", desc: "Éclairage studio & extérieur", slug: "portrait", img: "/pics/portrait/blond5.jpg" },
-  { id: "03", title: "Contenu de Marque", desc: "Stratégie réseaux sociaux & visuels", slug: "brand", img: "/pics/car/DSC01428.jpg" },
-  { id: "04", title: "Evenementiel", desc: "Mariages, galas & événements privés", slug: "evenementiel", img: "/pics/portrait/blond5.jpg" }
+  { id: "02", title: "Sport Automobile", desc: "Circuit, rallye & motorsport", slug: "sport-automobile", img: "/pics/car/DSC02570-Enhanced-NR.jpg" },
 ];
 
 const FALLBACK_IMAGES = [
@@ -157,7 +155,7 @@ export default function Portfolio() {
         </div>
         <MagneticButton className="hidden md:block">
            <a href="#contact" className={`px-6 py-2 border rounded-full text-xs font-bold uppercase tracking-widest transition-all duration-300 block ${isScrolled ? 'border-white text-white hover:bg-white hover:text-black' : 'border-white/30 text-white hover:bg-white hover:text-black'}`}>
-             Réserver une séance
+             Contactez-moi
            </a>
         </MagneticButton>
       </nav>
@@ -183,10 +181,10 @@ export default function Portfolio() {
 
       {/* MANIFESTO */}
       <section className="manifesto-section min-h-[50vh] flex items-center justify-center py-20 px-6">
-        <div className="max-w-4xl text-center">
+        <div className="max-w-7xl text-center">
             <p className="text-red-500 font-bold uppercase tracking-[0.3em] mb-8 text-xs">The Vision</p>
-            <h2 className="manifesto-text text-3xl md:text-6xl font-display uppercase leading-tight text-white/20 bg-clip-text bg-gradient-to-r from-white via-white to-white/20 bg-no-repeat" style={{ backgroundSize: "0% 100%" }}>
-                "La photographie ne se résume pas à l'appareil. C'est la <span className="text-red-600">volonté</span> qui compte. Créer des visuels qui arrêtent le défilement."
+            <h2 className="manifesto-text text-3xl md:text-7xl font-display uppercase leading-tight text-white/20 bg-clip-text bg-gradient-to-r from-white via-white to-white/20 bg-no-repeat" style={{ backgroundSize: "0% 100%" }}>
+            "Entre vitesse, <span className="text-red-600">lumière</span> et précision".
             </h2>
         </div>
       </section>
@@ -238,8 +236,8 @@ export default function Portfolio() {
         
         {/* Titre Galerie */}
         <div className="h-item w-full lg:h-full lg:min-w-[30vw] flex flex-col justify-center px-6 py-20 lg:px-16 border-b lg:border-b-0 lg:border-r border-white/5 bg-[#080808]">
-          <span className="text-white/40 text-xs uppercase tracking-[0.4em] mb-6 font-bold">Dernières réalisations</span>
-          <h2 className="text-5xl font-display font-bold uppercase leading-tight">Portfolio <br/> Visuel</h2>
+          {/* <span className="text-white/40 text-xs uppercase tracking-[0.4em] mb-6 font-bold">Dernières réalisations</span> */}
+          <h2 className="text-5xl font-display font-bold uppercase leading-tight">Dernières <br/> réalisations</h2>
           <p className="mt-4 text-xs text-gray-500 md:hidden">(Appuyez sur les images pour agrandir)</p>
         </div>
         
@@ -272,15 +270,15 @@ export default function Portfolio() {
         <div className="z-10 w-full max-w-5xl flex flex-col md:flex-row gap-16 items-center justify-between">
             
             <div className="text-center md:text-left">
-              <p className="text-red-600 font-bold uppercase tracking-[0.3em] mb-4 animate-pulse">Ouvert aux commandes</p>
+              {/* <p className="text-red-600 font-bold uppercase tracking-[0.3em] mb-4 animate-pulse">Ouvert aux commandes</p> */}
               <h2 className="text-5xl md:text-8xl font-display font-black uppercase tracking-tighter mb-8 text-white">
-                Ready to <br/> Shoot?
+                Contactez <br/> Moi ?
               </h2>
-              <MagneticButton>
+              {/* <MagneticButton>
                 <a href="https://instagram.com/venoxalacam" target="_blank" className="inline-block px-10 py-5 border border-white/20 text-white font-bold uppercase tracking-widest hover:bg-white hover:text-black transition-all">
                     Envoyer un message sur Instagram
                 </a>
-              </MagneticButton>
+              </MagneticButton> */}
 
               <div className="mt-10 flex flex-col gap-3 text-sm text-white/60">
                 <a href="tel:+33600000000" className="flex items-center gap-3 hover:text-white transition-colors">

@@ -25,7 +25,7 @@ const projectData: any = {
     title: "Automobile",
     subtitle: "Vitesse & Héritage",
     desc: "Capturant la puissance brute de l'ingénierie. De la piste au showroom, chaque courbe raconte une histoire de vitesse.",
-    next: "portrait",
+    next: "sport-automobile",
     images: [
       "/pics/car/DSC03037-Enhanced-NR.jpg",
       "/pics/car/_DSC5710.jpg",
@@ -50,59 +50,13 @@ const projectData: any = {
         "/pics/car/DSC03028-Enhanced-NR.jpg",
     ]
   },
-  "portrait": {
-    title: "Portrait",
-    subtitle: "L'âme humaine",
-    desc: "Au-delà du visage. Nous cherchons l'histoire, l'émotion et les paroles non dites dans chaque regard.",
-    next: "brand",
-    images: [
-      "/pics/portrait/blond1.jpg",
-      "/pics/portrait/blond2.jpg",
-      "/pics/portrait/blond3.jpg",
-      "/pics/portrait/blond4.jpg",
-      "/pics/portrait/blond5.jpg",
-      "/pics/portrait/blond6.jpg",
-      "/pics/portrait/erell1.jpg",
-      "/pics/portrait/erell2.jpg",
-      "/pics/portrait/erell3.jpg",
-      "/pics/portrait/erell4.jpg",
-      "/pics/portrait/erell5.jpg",
-      "/pics/portrait/erell6.jpg",
-      "/pics/portrait/erell7.jpg",
-      "/pics/portrait/erell8.jpg",
-      "/pics/portrait/erell9.jpg",
-      "/pics/portrait/erell10.jpg",
-      "/pics/portrait/erell11.jpg",
-      "/pics/portrait/casque1.jpg",
-        "/pics/portrait/casque2.jpg",
-        "/pics/portrait/casque3.jpg",
-        "/pics/portrait/casque4.jpg",
-    ]
-  },
-  "brand": {
-    title: "Contenu de marque",
-    subtitle: "Identité & Vision",
-    desc: "Sublimer les marques par la narration visuelle. Des images cohérentes, puissantes et mémorables pour l'ère numérique.",
-    next: "evenementiel",
-    images: [
-      "/pics/car/IMG_1830-Enhanced-NR.jpg",
-      "/pics/car/DSC01428.jpg",
-      "/pics/car/DSC02701-Enhanced-NR.jpg",
-      "/pics/car/DSC00896.jpg",
-      "/pics/car/DSC01417-Enhanced-NR.jpg",
-      "/pics/car/DSC00715.jpg",
-      "/pics/car/DSC00436.jpg",
-      "/pics/car/DSC00748.jpg",
-      "/pics/portrait/casque3.jpg",
-    ]
-  },
-  "evenementiel": {
-    title: "Evenementiel",
-    subtitle: "Instants & Émotions",
-    desc: "Mariages, galas, événements privés. Capturer l'éphémère avec élégance et discrétion.",
+  "sport-automobile": {
+    title: "Sport Automobile",
+    subtitle: "Circuit & Adrénaline",
+    desc: "La puissance en mouvement. Circuit, rallye et motorsport : chaque image capture la vitesse, la précision et l'intensité de la compétition.",
     next: "automotive",
     images: [
-      "/pics/portrait/blond5.jpg",
+      "/pics/car/DSC02570-Enhanced-NR.jpg",
     ]
   }
 };
@@ -171,11 +125,11 @@ export default function ProjectPage() {
         <h1 className="page-title text-6xl md:text-9xl font-display font-black uppercase tracking-tighter mb-10 text-transparent stroke-white leading-none">
             {currentData.title}
         </h1>
-        <div className="page-desc max-w-xl border-l border-white/20 pl-8">
+        {/* <div className="page-desc max-w-xl border-l border-white/20 pl-8">
             <p className="text-gray-400 text-lg md:text-xl leading-relaxed font-serif italic">
                 {currentData.desc}
             </p>
-        </div>
+        </div> */}
       </header>
 
       {/* MASONRY GALLERY (GRID ASYMETRIQUE) */}

@@ -40,9 +40,7 @@ export const gallerySchema = defineType({
       options: {
         list: [
           { title: 'Automobile', value: 'automotive' },
-          { title: 'Portrait', value: 'portrait' },
-          { title: 'Contenu de Marque', value: 'brand' },
-          { title: 'Evenementiel', value: 'evenementiel' },
+          { title: 'Sport Automobile', value: 'sport-automobile' },
         ],
       },
     }),
